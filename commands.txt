@@ -1,2 +1,12 @@
 java -server -Xmx1024m -Xms1024m -Xmn256m -XX:+UseLargePages
 
+-XX:+PrintCompilation
+
+-XX:+PrintOptoAssembly
+
+-verbose:gc, -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+
+jstack
+
+jstatd
+
