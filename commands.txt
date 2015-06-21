@@ -1,3 +1,5 @@
+-XX:+PrintCommandLineFlags -XX:+PrintFlagsFinal
+
 java -server -Xmx1024m -Xms1024m -Xmn256m -XX:+UseLargePages
 
 -XX:+PrintCompilation
@@ -9,4 +11,32 @@ java -server -Xmx1024m -Xms1024m -Xmn256m -XX:+UseLargePages
 jstack
 
 jstatd
+
+-client -server -d64 -XX:+UseCompressedOops
+
+-XX:NewSize -XX:MaxNewSize -Xmn 
+
+-XX:NewRatio -Xms -Xmx
+
+-XX:PermSize -XX:MaxPermSize 
+
+-XX:SurvivorRatio -XX:InitialSurvivorRatio
+
+-XX:+UseParallelGC -XX:+UseParallelOldGC
+
+-XX:+PrintGCApplicationStoppedTime
+
+-XX:+DoEscapeAnalysis -XX:+AggressiveOpts
+
+-XX:+UseBiasedLocking
+
+-XX:+AggressiveHeap
+
+-XX:+UseLargePages
+
+-XX:+UseNUMA
+
+
+
+
 
