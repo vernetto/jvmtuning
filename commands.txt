@@ -1,6 +1,7 @@
 d:
 cd D:\pierre\workspace12c\jvmtuning\src
 set PATH=D:\pierre\Java\jdk1.7.0_79\bin\;%PATH%
+set JAVA_HOME=D:\pierre\Java\jdk1.7.0_79\
 jvisualvm --jdkhome D:\pierre\Java\jdk1.7.0_79\
 
 type 
@@ -636,6 +637,10 @@ ccstrlist OnOutOfMemoryError                        =                 {product}
 </pre>
 
 
+-XX:-UseAdaptiveSizePolicy disables dynamic heap adjustment
+
+
+
 there are:
 STANDARD -X and -XX options http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/java.html
 NOT SO STANDARD -X and -XX options http://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html
@@ -989,6 +994,74 @@ Flags related to heap sizing
 -Xmx heap maximum size
 
 
+________________
+
+thread dump information
+
+thread name
+daemon vs non-daemon
+tid and nid (thread id and native id) 
+runnable vs wait on condition
+
+
+
+patterns to search: 
+waiting to lock <HEX>
+locked <HEX>
+
+
+_______________
+
+
+PS Scavenge in Young Generation, PS markandsweep in Old Generation
+
+_____________
+
+
+-XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime
+they will print:
+Application time: 0.6513319 seconds
+Total time for which application threads were stopped: 0.0015699 seconds
+
+
+______________________
+
+
+References:
+https://www.youtube.com/watch?v=3dKufRRT_3E  Thread dump analysis - HotSpot JVM - Java heap depletion
+http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html  Thread states (RUNNABLE)
+http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html Object.wait()
+https://en.wikipedia.org/wiki/Monitor_%28synchronization%29 what a monitor is
+
+
+
+
+
+
+
+
+_______________________________
+
+class loading
+
+java -verbose:class com.pierre.TestGC
+
+[Loaded com.pierre.TestGC from file:/D:/pierre/workspace12c/jvmtuning/src/]
+[Loaded java.lang.InterruptedException from D:\pierre\Java\jdk1.7.0_79\jre\lib\rt.jar]
+
+
+_________________
+
+Linux tools
+
+pidstat (sysstat package)
+vmview
+mpstat (sysstat package)
+taskset (processor affinity)
+top
+/proc/meminfo 
+free
+iostat -xc
 
 
 
