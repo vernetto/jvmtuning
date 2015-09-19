@@ -1,4 +1,4 @@
-package com.pierre;
+package com.pierre.heap;
 
 public class RuntimeRunner {
 	public static void main(String[] args) {

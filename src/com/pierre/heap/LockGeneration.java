@@ -1,4 +1,4 @@
-package com.pierre;
+package com.pierre.heap;
 
 public class LockGeneration {
 	public static Object myMonitor = new Object();

@@ -1,4 +1,4 @@
-package com.pierre;
+package com.pierre.heap;
 
 public class DeadlockGenerator {
     private static class AllocThread extends Thread {

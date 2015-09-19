@@ -1,4 +1,4 @@
-package com.pierre;
+package com.pierre.heap;
 
 public class NotSoSimpleProgram {
 	static final int CHUNK_SIZE = 1_000;
